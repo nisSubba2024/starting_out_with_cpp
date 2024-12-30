@@ -1,0 +1,14 @@
+When C++ program is written, it must be typed into the computer and saved into a file. The statement written by the programmer are called source code and the file they are saved in is called the source file.
+
+After that, the source code is translated into a machine language.
+
+First phase of this process a preprocessor reads the source code. It searches for special lines that begin with # symbol. It causes preprocessor to modify the source code in some way.
+
+Nexy phase, the compiler setups through the preproccesed source code, translating each source code instruction into the appropriate machine language instruction. This is also when program will find any syntax errors that may be in the program.
+
+If the program is free of syntax errors, the compiler stores the translated machine language instructions, which are called object code, in a object file.
+
+During the last phase of the translation process, another program called the linker combines the object file with the necessary library routines. Once linkers has finished with this step, an executable file is created. This executable file contains machine language instructions, or executable code, and is ready to run on the computer.
+
+ Full track:
+ Source code -> preprocessor -> modified source code -> compiler -> object code -> linker -> executable code

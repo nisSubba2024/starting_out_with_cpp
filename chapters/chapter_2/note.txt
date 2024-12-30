@@ -1,0 +1,125 @@
+Escape sequences
+\n new line
+\t horizontal tab
+\\ backslash
+\' single quote
+\" double quote
+
+Int size:
+int 4 byte -2,147,483,648 to +2,147,483,647
+unsigned int 4 byte 0 to 4,294,967,295
+long long int 8 byte
+
+Digit separators
+You can use single quote to separate the number
+amount = 1'000'000
+this is same as 1000000
+
+Char type is stored as their ascii equivalent, char is actually an integer type
+ex: A = 65, B = 66
+
+Difference between string literals and character literals
+
+Because string literals can be of any length, it is impossible for program to determine when it ends, so it use '\0' to mark end of the string. \0 is an extra byte which is appended to the end of string literals when stored in memory. This is called null terminator or null character and marks the end of string.
+Ex:"Sebastian"
+this is stored as: S|e|b|a|s|t|i|a|n|\0
+
+Character is stored as:
+'A' -> A
+"A" -> A|\0
+
+ASCII
+'A' -> 65
+"A" -> 65|0
+
+Using the string class
+#include <string> // preprocessor directive
+endl -> end the line and place cursor to next line
+
+floating points
+There are 3 floating points: float, double, long doubel
+float is single precision and double is double precision
+
+Floating points representations:
+decimal
+247.91
+Scientific notation
+2.4791 x 10^2
+
+e notation
+2.4791e2
+
+floating can be written as:
+num = 14.725f
+
+when float is assigned to int, number will not be rounded, instead it will simply truncate the decimal
+
+bool 1 = true, 0 = false
+
+Determining the size of a data type:
+sizeof(int) can be used to determine the size of any data type, which will return the number of byte used by that items
+
+
+Declaring variable with 'auto' keyword
+From C++ 11, you can declare variable with auto keyword
+ex:
+auto amount = 100;
+The auto data type tells the compiler to determine the variables data type from the initialization value.
+In this example, amount would be an int because 100 is integer
+
+EX:
+auto interestRate = 12.0; // double
+auto stockCode = 'D'; // char
+auto customerNum = 459L; // long
+
+Alternate ways to initialize a variable:
+most common way:
+int value = 5;
+
+Alternate method 1:
+Enclose the initialization value in a set of parentheses, just after the variable name
+EX:
+int value(5);
+
+Alternate method 2:
+Only after c++ 11, is to enclose the initialization value in a set of curly braces, just after the variable name
+EX:
+int value {5};
+There is advantage to using a braces initialization because it will check for data type.
+EX: int val1 = 4.9;
+The val1 is a int data type; however, 4.9 is a float value, but compiler will still execute the code and truncate the float into int.
+However, with braces, it will check to make sure the value be assigned to val1 is actually an int and give error when compiling.
+
+
+Arithmetic operates
+There are 3 types of operas: unary, binary, and ternary
+
+Multi-level comment:
+/*
+    PROGRAM: file name
+    Written by author name
+    What does the program do
+    Last modification: date
+*/
+
+Named constant
+A named constant is a like a variable, but its content is read-only and cannot be changed while the program is running.
+EX:
+const double INTEREST_RATE = 0.069;
+
+Compiling the code:
+mac default:
+to compile: clang++ -o executable_file_name file.cpp
+to rune: ./executable_file_name
+Another way using g++:
+g++ -o executable_file_name file.cpp
+to rune: ./executable_file_name
+
+Include libraries:
+g++/clang++ -o executable_file_name file.cpp -lmylibrary
+
+Enable debugging:
+g++/clang++ -g -o executable_file_name file.cpp
+
+Set C++ Standard to specifics which c++ version/standard
+g++/clang++ -std=c++17 -o executable_file_name file.cpp

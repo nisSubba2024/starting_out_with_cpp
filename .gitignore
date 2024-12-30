@@ -1,0 +1,4 @@
+cmake-build-debug
+.idea/
+### Mac OS ###
+.DS_Store
