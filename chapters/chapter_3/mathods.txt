@@ -1,0 +1,13 @@
+Stream manipulators
+need: #include <iomanip>
+
+Stream Manipulator                  Description
+setw(n)                             Establishes a print field of n spaces
+fixed                               Displays floating point numbers in fixed point notation
+showpoint                           Causes a decimal point and trailing zeros to be displayed, even if there is no fractional part
+setprecision(n)                     Sets the precision of floating point numbers
+left                                Causes subsequent output to be left justified
+right                               Causes subsequent output to be right justified
+
+Type casting
+static_cast<DataType>(data)

@@ -1,0 +1,187 @@
+>> is a stream extraction operator
+cin automatically converts data read from keyboard to variable data type
+If user types 10, it is read as the character '1' and '0'
+
+Enter multiple values
+cin can be used to get more than 1 values
+ex: cin >> length >> width
+
+ex code:
+int length, width, area
+
+cout << ask for length and width separated by space
+cin length >> width
+
+ex: user enters: 10 20
+length = 10, width = 20
+
+It doesn't matter how many spaces are entered between 10 and 20, it will end once you enter.
+
+cin can also take multiple different data type
+ex; cin >> int >> double >> char >> str
+
+When users enters the values, they are first stored in keyboard buffers
+
+It is important to enter the values in correct orders:
+EX: if program ask for: cin >> int >> double >> char
+
+and you enter: 5.7 4 b
+those values are stored in keyboard buffers as: 5 | . | 7 |  | 4 |  | b | enter|
+the program will take: 5 for int,
+0.7 for decimal
+'4' in letters
+b will be in keyboard buffer
+
+Exponents
+The c++ library is a collection of specialized functions
+pow(a,b) = will power the a by the power of b = a ^ b
+#include <cmath> for maths functions such as pow()
+
+Apple to Orange Conversion: conversion between different data type
+Data type ranks:
+long double
+double
+float
+unsigned long long int
+long long int
+unsigned long int
+long int
+unsigned int
+int
+
+In C++, when working with different data type, it will try to convert the operands to the same type which is known as type coercion.
+
+When value is converted to a higher data type, it is called promoted.
+
+When data type is converted to lower data type, it is demote.
+
+Math rules:
+
+Rule 1: chars, shorts, and unsigned shorts are automatically promoted to int
+
+Rule 2: When operator works with 2 values of different data types, the lower ranking value is promoted to the type of the higher values
+ex: years * interestRate // year is  int and interestRate is float
+before the multiplication, years will be converted into float
+
+Rule 3: when the final value of an expression is assigned to a variable, it will be converted to the data type of that variable
+ex: area = length * width; // length and width are int, area is long int
+length and width are both int and no date type conversion will happen and it will be int
+Even though length and width are int and result is int, but when its assigned to area which is long int, the result int will be converted into long int
+
+ex: int x, y = 4;
+float z = 2.7;
+x = y * z;
+y will be converted to float to match z and result will be a float = 10.8
+but since its being assign to int x, 10.8 will be truncated to 10
+
+
+Overflow and Underflow
+overflow - when a variable is assigned a number that is too large for its data type
+underflow - when a variable is assigned a number that is too small for its data type
+
+!IMPORTANT
+ex code:
+  short testVar = 32767; // this is the maximum value that short can hold
+  short can hold from: -32768 to + 32767
+
+  add 1 to testVar to make it overflow
+  testVar = testVar + 1;
+  this will cause overflow and result will be that data type lowest possible value which is -32768.
+  now testVar = -32768;
+
+  subtract 1 from testVar to make it underflow
+  testVar = testVar - 1;
+  this will cause testVar to go back to its max value it can hold which is 32767;
+  now testVar = 32767; which is the original value of that data type
+
+  This will not produce any error during the compilation of the code.
+
+  Type casting
+  Type casting allows you to perform annual data type conversion, you can either promote or demote an value.
+
+  format: static_cast<DataType>(value) // this is the format to type cast
+
+  ex:
+  double number = 3.7;
+  int val;
+  val = static_cast<int>(number); // this will demote the number variable to int, which will be 3, and 0.7 is truncated
+
+  type casting for char:
+  int number = 65;
+  cout << number; this is print 65
+
+  but if number is type casted into a char
+  number = static_cast<char>(number)
+  characters are stored in memory as integer ascii codes
+  this will convert 65 number into a char, but since char is stored as ascii numbers, it will print ascii value of 65 which is A
+  A = 65 in ascii
+
+Combined Assignment Operators
+Operators               Example Usage                   Equivalent to
++=                      x += 5;                         x = x + 5;
+-=                      y -= 5;                         y = y -2;
+*=                      z *= 10;                        z = z * 10;
+/=                      a /= b;                         a = a / b;
+%=                      c %/ 3;                         c = c % 3;
+
+Giving same value to multiple variables
+
+begin = 100
+var1 = var2 = var3 = begin
+
+Example Usage                   Equivalent to
+x += b + 5;                         x = x + (b + 5);
+
+Formatting Output
+value: 2451 516 55 2
+All these values takes different number of digits and will not be printed well
+, however, we can solve this using setw
+
+A stream manipulators, setw, can be used to establish print fileds of a specified width:
+ex: value = 23;
+cout << setw(5) << value;
+5 is the field width
+In this example, setw will put 5 positions or spaces, and value 23 will be need to printed into 5 spaces but 23 is only 2 digits, so padding 3 spaces will be used in front
+ex; setw(5) -> will do: (   23) -> there are 3 empty spaces
+The padding in the front of 23 is called right-justified padding
+must inlude <iomaip>
+
+if value = 1511
+and setw(2) -> this sets minimum number of spaces to 2. but since value is 4 digits, which is larger than 2, it will override the setw
+
+Significant digits or precision which is the total number of digits that appears before and after the decimal points
+setprecision(digits) will set number of digits
+value = 121.25156284
+setprecision(6) << value => 121.252 because  1 2 3 2 5 1 6 2 8 4 are significant digits
+
+setprecision will round the number
+if setprecision digits is larger than the number of digits, then setprecision will have no effects
+ex: setprecision(10) << 421.5815 => 421.5815; // since larger is smaller digits than 421.5815 which only has 4 decimal digits, it will have no effects
+a setprecision effect will remain in place until changed
+
+ex:
+cout << setprecision(5);
+cout << 56.51516 << endl;
+cout << 85.841616 << endl;
+both cout will have access to setprecision(5);
+
+Some times setprecision will have unintended affect of altering the output
+ex: setprecision(2);
+value= 145678.99 -> 1.4568e+005
+
+To prevent this, you can use fixed point notation, which will force cout to print in fixed decimal points
+ex: setprecision(2) << fixed;
+value= 145678.99 -> 1145678.99
+
+in floating points, trailing 0 are not printed
+trailing 0 can be output with showpoint
+
+setprecision(6) << showpoint;
+value = 123.4 -> 123.400
+
+Right and Left padding
+cout << left << setw(5);
+this is add left padding of 5 spaces
+
+
+Stop at 3.8 Working with characters and string objects
