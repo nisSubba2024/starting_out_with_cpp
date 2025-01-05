@@ -1,0 +1,8 @@
+
+------------------ Hospital Inpatient Care Details --------------------
+
+Days stayed: 5
+Daily rate: $250
+Service charges: $125.2
+Medication charges: $60.65
+Total charge: $1435.85
