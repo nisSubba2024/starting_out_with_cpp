@@ -80,3 +80,7 @@ add_executable(calc2drows chapters/chapter_7/calc2drows.cpp
         chapters/chapter_7/twodcolcalc.cpp)
 add_executable(vectors chapters/chapter_7/vectors.cpp)
 add_executable(bubbleSort Projects/DSA/Sorting_Algorithm/bubbleSort.cpp)
+add_executable(wordSearch Projects/Word_Search/wordSearch.cpp)
+add_executable(word_Search Projects/Word_Search_V2/wordSearch.cpp
+        Projects/Word_Search_V2/wordSearch.h
+        Projects/Word_Search_V2/main.cpp)
