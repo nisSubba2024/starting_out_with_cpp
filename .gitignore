@@ -4,6 +4,7 @@ Projects/DSA
 Projects/RPS
 Projects/Word_Search
 Projects/Word_Search_V2
+CMakeLists.txt
 
 ### Mac OS ###
 .DS_Store
